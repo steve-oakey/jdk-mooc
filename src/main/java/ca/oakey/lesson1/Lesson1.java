@@ -48,7 +48,9 @@ public class Lesson1 {
     List<String> list = Arrays.asList(
         "alpha", "bravo", "charlie", "delta", "echo", "foxtrot");
 
-    /* YOUR CODE HERE */
+    StringBuilder b = new StringBuilder();
+    list.forEach(word -> b.append(word.charAt(0)));
+    System.out.println(b);
   }
 
   /**
@@ -59,8 +61,8 @@ public class Lesson1 {
   private void exercise2() {
     List<String> list = new ArrayList<>(Arrays.asList(
         "alpha", "bravo", "charlie", "delta", "echo", "foxtrot"));
-
-    /* YOUR CODE HERE */
+    list.removeIf(word -> word.length() % 2 != 0);
+    System.out.println(list);
   }
 
   /**
@@ -71,8 +73,8 @@ public class Lesson1 {
   private void exercise3() {
     List<String> list = new ArrayList<>(Arrays.asList(
         "alpha", "bravo", "charlie", "delta", "echo", "foxtrot"));
-
-    /* YOUR CODE HERE */
+    list.replaceAll(String::toUpperCase);
+    System.out.println(list);
   }
 
   /**
@@ -87,7 +89,9 @@ public class Lesson1 {
     map.put("b", 2);
     map.put("a", 1);
 
-    /* YOUR CODE HERE */
+    StringBuilder b = new StringBuilder();
+    map.forEach((k,v) -> b.append(k).append(v));
+    System.out.println(b.toString());
   }
 
   /**
@@ -98,7 +102,8 @@ public class Lesson1 {
   private void exercise5() {
     List<Integer> list = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 
-    /* YOUR CODE HERE */
+    Thread t = new Thread(() -> list.forEach(System.out::println));
+    t.start();
   }
 
   /**
